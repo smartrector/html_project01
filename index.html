@@ -5,17 +5,18 @@
 	<title>title</title>
 	<style>
 	/*css reset*/
-		*{padding:0;margin:0;}
+		*{padding:0;margin:0;box-sizing:border-box}
 		li{list-style:none}
 		a:link,a:visited{text-decoration:none;color:#000000;}
+		.clearfix:after{content:"";display: block;clear: both;}
 	
 	/*main_header*/
-	header#container{}
+	header#container{position: relative;z-index:1}
 	header#container>div.gnb_wrap{border-bottom: 1px solid #ccc;}
 		div.gnb{width: 980px;margin:0 auto;}
 		div.gnb:after{content:"";display: block;clear: both;}
 		nav.gnb_menu{float: right;}
-		nav.gnb_menu>ul:after{content:"";clear: both;display: block;}
+		/*nav.gnb_menu>ul:after{content:"";clear: both;display: block;}*/
 		nav.gnb_menu>ul>li{float: left;width:70px;border-right: 1px solid #000;} /*ctrl+shift+Y*/
 		nav.gnb_menu>ul>li:last-child{border-right:none}
 		nav.gnb_menu>ul>li>a{display: block;text-align: center;line-height:40px}
@@ -25,30 +26,32 @@
 	header#container>div.lnb_wrap{background:#1c5da3;}
 	header#container>div.lnb_wrap>div.lnb{width:980px;margin:0 auto;}
 		ul.lnb_menu{width:100%;}
-		ul.lnb_menu:after{content:"";display: block;clear: both;}
-		ul.lnb_menu>li{float: left;width:16.66%;border-right:1px solid #fff;box-sizing:border-box;height:45px;} /*li높이값지정
+		/*ul.lnb_menu:after{content:"";display: block;clear: both;}*/
+		ul.lnb_menu>li{float: left;width:16.66%;border-right:1px solid #fff;box-sizing:border-box;height:45px;transition:0.3s;} /*li높이값지정
 */		ul.lnb_menu>li:first-child{border-left:1px solid #fff;}
 		ul.lnb_menu>li>a{display: block;text-align:center;line-height:45px;color:white;font-weight:bold;}
 
-		ul.lnb_menu ul.submenu{display:none;}
+		ul.lnb_menu ul.submenu{_display:none;opacity:0;transition:0.3s;background:#fff;}
 
 		ul.lnb_menu>li:hover a{color:#1c5da3;}
 		ul.lnb_menu>li:hover{background:skyblue;}
 
-		ul.lnb_menu>li:hover ul.submenu{display:block;} /*hover 지정*/
+		ul.lnb_menu>li:hover ul.submenu{_display:block;opacity:1;} /*hover 지정*/
 		/*ul.lnb_menu:hover ul.submenu{display:block;}*/ /*hover 지정*/
 
 
 	div.visual_wrap{height:400px;background:skyblue}
+	.p-5{padding:5em;}
+	.pl-5{padding-left:5em;}
 	</style>
 </head>
 <body>
 	<header id="container"> <!-- width 100% -->
 		<div class="gnb_wrap"> <!-- width 100% -->
-			<div class="gnb"> <!-- width:980 -->
+			<div class="gnb clearfix"> <!-- width:980 -->
 				<nav class="gnb_menu">
 					<!-- ul>li*4>a[#]>{menu$} -->
-					<ul>
+					<ul class="clearfix">
 						<li><a href="#">menu1</a></li>
 						<li><a href="#">menu2</a></li>
 						<li><a href="#">menu3</a></li>
@@ -61,7 +64,7 @@
 		<h1>한국직업전문학교</h1>
 		<div class="lnb_wrap"> <!-- width 100% background #1c5da3 -->
 			<div class="lnb"> <!-- width:980 -->
-					<ul class="lnb_menu"> <!-- width 100% -->
+					<ul class="lnb_menu clearfix"> <!-- width 100% -->
 						<li><a href="#">menu1</a>
 							<ul class="submenu">
 								<li>submenu1</li>
