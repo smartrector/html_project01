@@ -7,27 +7,62 @@
 		*{padding: 0;margin: 0;}
 		ul,li{list-style:none;}
 		a:link,a:visited{text-decoration:none;color:#000;}
-		img{display: block;}
-
-		ul.slider{width: 1260px;margin:0 auto;}
+		img{display: block;_width:100%;}
+		div.wrap{background:#ffc30b;}
+		div.slider_wrap{width: 1260px;margin:0 auto;}
 	</style>
-	<link rel="stylesheet" href="/css/jquery.bxslider.css">
+	<link rel="stylesheet" href="css/jquery.bxslider.css">
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/jquery.bxslider.js"></script>
 	<!-- script:src 	link:css 	meta:vp -->
+	<style>
+		.bx-wrapper {
+	     box-shadow:none; 
+	     border:none; 
+	     background: #fff; 
+		}
+		.bx-wrapper .bx-pager{bottom: 30px;}
+		.bx-wrapper .bx-pager.bx-default-pager a{
+			width:20px;height: 20px;border-radius:10px
+		}
+		.slider_wrap{position: relative;}
+		.prevBtn,.nextBtn{position: absolute;top:350px;cursor:pointer;}
+		.prevBtn{left:0;}
+		.nextBtn{right:0;}
+
+	</style>
 	<script>
 		$(document).ready(function(){
-			$(".slider").bxSlider();
+			var mySlider = $(".slider").bxSlider({
+				auto:true,
+				pager:true,
+				controls:false
+			});
+
+			$(".nextBtn").on("click",function(){
+				mySlider.goToNextSlide();
+			});
+			
 		});
-
 	</script>
-
 </head>
 <body>
-	<ul class="slider">
-		<li><img src="images/main_slider01.jpg" alt=""></li>
-		<li><img src="images/main_slider01.jpg" alt=""></li>
-	</ul>
+	<div class="wrap">
+		<div class="slider_wrap">
+			<ul class="slider">
+				<li><img src="images/main_slider01.jpg" alt=""></li>
+				<li><img src="images/main_slider01.jpg" alt=""></li>
+				<li><img src="images/main_slider01.jpg" alt=""></li>
+				<li><img src="images/main_slider01.jpg" alt=""></li>
+			</ul>
+			<div class="prevBtn">
+				<img src="images/btn_left01.jpg" alt="">
+			</div>
+			<div class="nextBtn">
+				<img src="images/btn_right01.jpg" alt="">
+			</div>
+		</div>
+	</div>
 	
 </body>
 </html>
