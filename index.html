@@ -14,12 +14,13 @@
 	header#container{position: relative;z-index:1}
 	header#container>div.gnb_wrap{border-bottom: 1px solid #ccc;}
 		div.gnb{width: 980px;margin:0 auto;}
-		div.gnb:after{content:"";display: block;clear: both;}
+		
 		nav.gnb_menu{float: right;}
 		/*nav.gnb_menu>ul:after{content:"";clear: both;display: block;}*/
-		nav.gnb_menu>ul>li{float: left;width:70px;border-right: 1px solid #000;} /*ctrl+shift+Y*/
-		nav.gnb_menu>ul>li:last-child{border-right:none}
-		nav.gnb_menu>ul>li>a{display: block;text-align: center;line-height:40px}
+		nav.gnb_menu>ul>li{float: left;position: relative;} /*ctrl+shift+Y*/
+		nav.gnb_menu>ul>li:after{content:"";position: absolute;width:1px;height:12px;background: #cdcdcd;top:17px;}
+		nav.gnb_menu>ul>li:first-child:after{content:"";width:0;}
+		nav.gnb_menu>ul>li>a{display: block;text-align: center;line-height:40px;padding:0 10px;}
 		nav.gnb_menu>ul>li:hover{background:yellow;}
 	header#container>h1{text-align: center;line-height:70px;margin-bottom:5px;}
 
@@ -52,10 +53,10 @@
 				<nav class="gnb_menu">
 					<!-- ul>li*4>a[#]>{menu$} -->
 					<ul class="clearfix">
-						<li><a href="#">menu1</a></li>
-						<li><a href="#">menu2</a></li>
-						<li><a href="#">menu3</a></li>
-						<li><a href="#">menu4</a></li>
+						<li><a href="#">Login</a></li>
+						<li><a href="#">Join</a></li>
+						<li><a href="#">Contact us</a></li>
+						<li><a href="#">English</a></li>
 						
 					</ul>
 				</nav>
